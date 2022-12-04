@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HAMMER_LOADER } from '@angular/platform-browser';
 
 @Component({
    selector: 'chores-list',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
    styleUrls: ['./chores-list.component.css']
 })
 export class ChoresListComponent implements OnInit {
-   chores = ['Empty dishwasher', 'Complete LaunchCode prep work', 'Buy groceries'];
+   chores = ['LC101 homework', 'Ideate on Christmas presents for family', 'Finish tie-dying shirt'];
 
    constructor() { }
 

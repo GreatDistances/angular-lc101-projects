@@ -1,0 +1,14 @@
+.chores {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14pt;
+    color:yellowgreen;
+}
+
+ul {
+    text-decoration: underline;
+    font-style: italic;
+}
+
+h3 {
+    text-align: center;
+}
