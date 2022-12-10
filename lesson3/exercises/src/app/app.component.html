@@ -23,18 +23,18 @@
 
       <div class="col-3">
          <div class="container-right"b>
-            <button (click)="moveRocket(rocketImage, 'up')">Up</button>
-            <button (click)="moveRocket(rocketImage, 'down')">Down</button>
-            <button (click)="moveRocket(rocketImage, 'right')">Right</button>
-            <button (click)="moveRocket(rocketImage, 'left')">Left</button>
+            <button (click)="moveRocket(rocketImage, 'up'); edgeWarningVert()" [disabled]="takeoffEnabled">Up</button>
+            <button (click)="moveRocket(rocketImage, 'down'); edgeWarningVert()" [disabled]="takeoffEnabled">Down</button>
+            <button (click)="moveRocket(rocketImage, 'right'); edgeWarningHoriz()" [disabled]="takeoffEnabled">Right</button>
+            <button (click)="moveRocket(rocketImage, 'left'); edgeWarningHoriz()" [disabled]="takeoffEnabled">Left</button>
             <h3>Space Shuttle Height</h3>
             <p>{{height}} km</p>
          </div>
       </div>
    </div>
    <div class="container-control-buttons">
-      <button [class.takeOffButton] (click)="handleTakeOff()">Take Off</button>
-      <button [class.landButton] (click)="handleLanding()">Land</button>
-      <button [class.abortButton] (click)="handleAbort()">Abort Mission</button>
+      <button [class.takeOffButton] (click)="handleTakeOff()" [disabled]="!takeoffEnabled">Take Off</button>
+      <button [class.landButton] (click)="handleLanding()"[disabled]="takeoffEnabled">Land</button>
+      <button [class.abortButton] (click)="handleAbort()"[disabled]="takeoffEnabled">Abort Mission</button>
    </div>
 </div>

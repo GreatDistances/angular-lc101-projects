@@ -13,7 +13,6 @@ export class AppComponent {
   width = 0;
   message = 'Space shuttle ready for takeoff!';
   takeoffEnabled: boolean = true;
-
   
   handleTakeOff() {
     let result = window.confirm('Are you sure the shuttle is ready for takeoff?');
@@ -33,6 +32,7 @@ export class AppComponent {
         this.height = 0;
         this.width = 0;
         this.message = 'Space shuttle has landed and is ready for takeoff!';
+        this.takeoffEnabled = true;
       }
   }
 
@@ -43,6 +43,7 @@ export class AppComponent {
       this.height = 0;
       this.width = 0;
       this.message = 'Mission aborted! Shuttle has landed and is ready for takeoff.';
+      this.takeoffEnabled = true;
     }
 }
 
@@ -55,7 +56,7 @@ moveRocket(rocketImage, direction) {
     if (direction === 'left') {
       let movement = parseInt(rocketImage.style.left) - 10 + 'px';
       rocketImage.style.left = movement;
-      this.width = this.width + 10000;
+      this.width = this.width - 10000;
     }
     if (direction === 'up') {
       let movement = parseInt(rocketImage.style.bottom) + 10 + 'px';
@@ -65,10 +66,22 @@ moveRocket(rocketImage, direction) {
     if (direction === 'down') {
       let movement = parseInt(rocketImage.style.bottom) - 10 + 'px';
       rocketImage.style.bottom = movement;
-      this.width = this.width + 10000;
-      if (this.height >= 20000) {
-        this.height = this.height - 10000;
-      }
+      this.height = this.height - 10000;
+    }
+  }
+
+  edgeWarningVert() {
+    if (this.height > 300000 || this.height < 20000) {
+      this.color = 'orange';
+    } else {
+      this.color = 'blue';
+    }
+  }
+  edgeWarningHoriz() {
+    if (this.width > 450000 || this.width < 0) {
+      this.color = 'orange';
+    } else {
+      this.color = 'blue';
     }
   }
 }
